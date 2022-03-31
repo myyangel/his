@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
-			        
-                  
-        <menuitem
-        	id="main_menu_hospital_management"
-        	name="Hospital Management"
-            	web_icon="fa fa-plus-square,#ffffff,#696969"
+	<menuitem
+		  id="main_menu_hospital_management"
+		  name="Hospital Management"
+		  web_icon="fa fa-plus-square,#ffffff,#696969"
            />
-
-         <menuitem name="Configuration"
+	<menuitem name="Configuration"
             id="main_menu_configartion"
             parent = "main_menu_hospital_management"
             sequence = '13'
             />
-            
-               
-    	<menuitem name="Laboratory"
+	<menuitem name="Laboratory"
             id="main_menu_conf_laboratory"
             parent = "main_menu_configartion"
             sequence='0'
@@ -32,7 +27,7 @@
             name='Medical Service' parent="main_menu_hospital_management"
             sequence="11" />
 
-         <menuitem id="menu_inpatient_administration" name="Inpatient Administration"
+        <menuitem id="menu_inpatient_administration" name="Inpatient Administration"
             parent="main_menu_hospital_management" sequence='2' />
 
         <menuitem id="menu_patients" string="Patients" name='Patients'
@@ -63,7 +58,6 @@
                 name="Insurances" 
                 parent="main_menu_configartion"
                 sequence='9'/>
-
 
 
 </openerp>
