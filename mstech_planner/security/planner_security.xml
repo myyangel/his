@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.module.category" id="module_category_planner">
+            <field name="name">Planner</field>
+            <field name="description">Planner</field>
+            <field name="sequence">10</field>
+        </record>
+        
+        <record id="group_planner_user" model="res.groups">
+            <field name="name">User</field>
+            <field name="category_id" ref="module_category_planner"/>
+        </record>
+        
+        <record id="group_planner_manager" model="res.groups">
+            <field name="name">Administrator</field>
+            <field name="category_id" ref="module_category_planner"/>
+            <field name="implied_ids" eval="[(4, ref('group_planner_user'))]"/>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>
+        
+        <record model="ir.rule" id="planner_professional_comp_rule">
+            <field name="name">Professional multi-company</field>
+            <field name="model_id" ref="model_planner_professional"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">[
+    '|',
+        '|',
+            ('employee_id','=',False),
+            ('employee_id.company_id','=',False),
+        ('employee_id.company_id','in',company_ids),
+]</field>
+        </record>
+        
+        <record model="ir.rule" id="planner_professional_availability_comp_rule">
+            <field name="name">Professional Availability multi-company</field>
+            <field name="model_id" ref="model_planner_professional_availability"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">[
+    '|',
+        '|',
+            ('professional_id.employee_id','=',False),
+            ('professional_id.employee_id.company_id','=',False),
+        ('professional_id.employee_id.company_id','in',company_ids),
+]</field>
+        </record>
+        
+        <record model="ir.rule" id="planner_spot_comp_rule">
+            <field name="name">Spot multi-company</field>
+            <field name="model_id" ref="model_planner_spot"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">[
+    '|',
+        '|',
+            ('professional_id.employee_id','=',False),
+            ('professional_id.employee_id.company_id','=',False),
+        ('professional_id.employee_id.company_id','in',company_ids),
+]</field>
+        </record>
+        
+        <record model="ir.rule" id="planner_planner_comp_rule">
+            <field name="name">Planner multi-company</field>
+            <field name="model_id" ref="model_planner_planner"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">[
+    '|',
+        '|',
+            '|',
+                ('professional_id','=',False),
+                ('professional_id.employee_id','=',False),
+            ('professional_id.employee_id.company_id','=',False),
+        ('professional_id.employee_id.company_id','in',company_ids),
+]</field>
+        </record>
+        
+        <record model="ir.rule" id="planner_planner_line_comp_rule">
+            <field name="name">Planner Line multi-company</field>
+            <field name="model_id" ref="model_planner_planner_line"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">[
+    '|',
+        '|',
+            '|',
+                ('planner_id.professional_id','=',False),
+                ('planner_id.professional_id.employee_id','=',False),
+            ('planner_id.professional_id.employee_id.company_id','=',False),
+        ('planner_id.professional_id.employee_id.company_id','in',company_ids),
+]</field>
+        </record>
+        
+        <record id="base.default_user" model="res.users">
+            <field name="groups_id" eval="[(4,ref('group_planner_manager'))]"/>
+        </record>
+    </data>
+</odoo>
