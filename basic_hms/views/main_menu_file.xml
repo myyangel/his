@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <odoo>
-    <data>
         <menuitem
             id="main_menu_hospital_management"
             name="Hospital Management"
@@ -61,5 +60,4 @@
                 name="Insurances" 
                 parent="main_menu_configartion"
                 sequence='9'/>
-    </data>
 </odoo>
