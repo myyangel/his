@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-	
-	<menuitem
-	    id="main_menu_hospital_management"
-	    name="Hospital Management"
-            web_icon="fa fa-plus-square,#ffffff,#696969"
-	    sequence="50"
-           />
-	
-	<menuitem name="Configuration"
-            id="main_menu_configartion"
-            parent = "main_menu_hospital_management"
-            sequence = '13'
-            />
-	<menuitem name="Laboratory"
-            id="main_menu_conf_laboratory"
-            parent = "main_menu_configartion"
-            sequence='0'
-           />
+    <menuitem
+        id="main_menu_hospital_management"
+        name="Hospital Management"
+        web_icon="fa fa-plus-square,#ffffff,#696969"
+        sequence="50"
+        />
+
+    <menuitem name="Configuration"
+        id="main_menu_configartion"
+        parent = "main_menu_hospital_management"
+        sequence = '13'
+        />
+    <menuitem name="Laboratory"
+        id="main_menu_conf_laboratory"
+        parent = "main_menu_configartion"
+        sequence='0'
+        />
 
         <menuitem id="menu_nursing" name="Nursing"
             parent="main_menu_hospital_management"
