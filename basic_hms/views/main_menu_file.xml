@@ -3,7 +3,7 @@
 	<menuitem
 		  id="main_menu_hospital_management"
 		  name="Hospital Management"
-		  web_icon="fa fa-plus-square,#ffffff,#696969"
+		  
            />
 	<menuitem name="Configuration"
             id="main_menu_configartion"
