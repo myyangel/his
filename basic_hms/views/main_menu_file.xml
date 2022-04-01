@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
+<odoo>
+	
 	<menuitem
-		  id="main_menu_hospital_management"
-		  name="Hospital Management"
-		  
+	    id="main_menu_hospital_management"
+	    name="Hospital Management"
+            web_icon="fa fa-plus-square,#ffffff,#696969"
+	    sequence="50"
            />
+	
 	<menuitem name="Configuration"
             id="main_menu_configartion"
             parent = "main_menu_hospital_management"
@@ -60,4 +63,4 @@
                 sequence='9'/>
 
 
-</openerp>
+</odoo>
